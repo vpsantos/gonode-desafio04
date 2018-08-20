@@ -21,7 +21,7 @@ class UserController {
 
       if (!passwordMatch) {
         return response
-          .status(401)
+          .status(400)
           .send({ error: { message: 'The current password is invalid' } })
       }
 

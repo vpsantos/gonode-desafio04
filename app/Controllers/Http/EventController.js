@@ -33,7 +33,7 @@ class EventController {
 
     if (new Date(data.date).getTime() < Date.now()) {
       return response
-        .status(401)
+        .status(400)
         .send({ error: { message: 'The date must be a future date' } })
     }
 
@@ -42,7 +42,7 @@ class EventController {
       .getCount()
 
     if (dateEventsCount > 0) {
-      return response.status(401).send({
+      return response.status(400).send({
         error: {
           message: 'There is already an event scheduled for this date/time'
         }
@@ -87,7 +87,7 @@ class EventController {
 
     if (new Date(event.date).getTime() < Date.now()) {
       return response
-        .status(401)
+        .status(400)
         .send({ error: { message: 'Past events cannot be edited' } })
     }
 
@@ -95,7 +95,7 @@ class EventController {
 
     if (new Date(data.date).getTime() < Date.now()) {
       return response
-        .status(401)
+        .status(400)
         .send({ error: { message: 'The date must be a future date' } })
     }
 
@@ -104,7 +104,7 @@ class EventController {
       .getCount()
 
     if (dateEventsCount > 0) {
-      return response.status(401).send({
+      return response.status(400).send({
         error: {
           message: 'There is already an event scheduled for this date/time'
         }
@@ -133,7 +133,7 @@ class EventController {
 
     if (new Date(event.date).getTime() < Date.now()) {
       return response
-        .status(401)
+        .status(400)
         .send({ error: { message: 'Past events cannot be deleted' } })
     }
 
